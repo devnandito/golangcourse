@@ -2,25 +2,30 @@ package main
 
 import "fmt"
 
-func main() {
-	// Declaracion de variables
-	helloMessage := "Hello"
-	worldMessage := "world"
-	fmt.Println(helloMessage, worldMessage)
-
-	// Printf
-	nombre := "Platzi"
-	cursos := 500
-
-	fmt.Printf("%s tiene mas de %d cursos\n", nombre, cursos)
-	fmt.Printf("%v tiene mas de %d cursos\n", nombre, cursos)
-
-	// Sprintf
-	message := fmt.Sprintf("%s tiene mas de %d cursos", nombre, cursos)
+func normalFunction(message string) {
 	fmt.Println(message)
-	
-	// Tipo datos
-	fmt.Printf("helloMessage: %T\n", helloMessage)
-	fmt.Printf("cursos: %T\n", cursos)
+}
 
+func tripleArgument(a, b int, c string) {
+	fmt.Println(a, b, c)
+}
+
+func returnValue(a int) int {
+	return a * 2
+}
+
+func dobleReturn(a int) (c, d int) {
+	return a, a*2
+}
+
+func main() {
+	normalFunction("Hello world")
+	tripleArgument(1, 2, "Hola")
+	value := returnValue(2)
+	fmt.Println("Value:", value)
+
+	value1, value2 := dobleReturn(2)
+	value3, _ := dobleReturn(2)
+	fmt.Println("Value1 y Value2:", value1, value2)
+	fmt.Println("Value1:", value3)
 }
