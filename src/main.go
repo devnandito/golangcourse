@@ -2,25 +2,32 @@ package main
 
 import "fmt"
 
-func main() {
-	// Defer
-	defer fmt.Println("Hola")
-	fmt.Println("Mundo")
-
-	// Continue y break
-
-	for i :=0 ; i < 10; i++ {
-		fmt.Println(i)
-		//Continue
-		if i == 2 {
-			fmt.Println("Es 2")
-			continue
-		}
-
-		// Break
-		if i == 8 {
-			fmt.Println("Break")
-			break
-		}
+func isPalindromo(text string) {
+	var textReverse string
+	for i := len(text) -1 ; i >= 0 ; i-- {
+		textReverse += string(text[i])
 	}
+	if text == textReverse {
+		fmt.Println("Es palindromo")
+	} else {
+		fmt.Println("No es palindromo")
+	}
+}
+
+func main() {
+	slice := []string{"hola", "que", "haces"}
+
+	for i, valor := range slice {
+		fmt.Println(i, valor)
+	}
+
+	for _, valor := range slice {
+		fmt.Println(valor)
+	}
+
+	for i := range slice {
+		fmt.Println(i)
+	}
+
+	isPalindromo("casas")
 }
