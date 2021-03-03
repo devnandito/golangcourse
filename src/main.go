@@ -3,5 +3,23 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello world")
+	valor1 :=1
+	valor2 :=2
+
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	}else {
+		fmt.Println("No es 1")
+	}
+
+	// With and
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Es verdadero")
+	}
+
+	// With or
+
+	if valor1 == 0 || valor2 == 2 {
+		fmt.Println("Es verdad, OR")
+	}
 }
