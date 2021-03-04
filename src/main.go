@@ -18,4 +18,15 @@ func main() {
 	fmt.Println(slice[:3])
 	fmt.Println(slice[2:4])
 	fmt.Println(slice[4:])
+	
+	// Append
+	slice = append(slice, 7)
+	fmt.Println(slice)
+	
+	// Append
+	newSlice := []int{8, 9, 10}
+	slice = append(slice, newSlice...)
+	fmt.Println(slice)
+
+	
 }
