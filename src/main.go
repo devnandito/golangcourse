@@ -2,23 +2,20 @@ package main
 
 import "fmt"
 
+
 func main() {
-	// For condicional
-	for i := 0; i < 10; i++ {
-		fmt.Println(i)
+	m := make(map[string]int)
+
+	m["Jose"] = 14
+	m["Pepito"] = 20
+	fmt.Println(m)
+
+	// Recorrer un map
+	for i, v := range m {
+		fmt.Println(i, v)
 	}
 
-	// for while
-	counter := 0
-	for counter < 10 {
-		fmt.Println(counter)
-		counter++
-	}
-
-	// for forever
-	counterForever := 0
-	for {
-		fmt.Println(counterForever)
-		counterForever++
-	}
+	// Encontrar un valor
+	value, ok := m["Jose"]
+	fmt.Println(value, ok)
 }
