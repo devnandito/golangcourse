@@ -2,44 +2,39 @@ package main
 
 import "fmt"
 
-type pc struct {
-	ram int
-	disk int
-	brand string
+type figurad2D interface {
+	area() float64
 }
 
-func (myPc pc) ping() {
-	fmt.Println(myPc.brand, "Pong")
+type cuadrado struct {
+	base float64
 }
 
-func (myPc *pc) duplicateRAM() {
-	myPc.ram = myPc.ram * 2
+type rectangulo struct {
+	base float64
+	altura float64
 }
 
-func (myPc pc) String() string {
-	return fmt.Sprintf("Tengo %d GB RAM, %d DB Disco y es una %s", myPc.ram, myPc.disk, myPc.brand)
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+func calcular(f figurad2D) {
+	fmt.Println("Area:", f.area())
 }
 
 func main() {
-	a := 50
-	b := &a
+	myCuadrado := cuadrado{base: 2}
+	myRectangulo := rectangulo{base: 2, altura: 4}
 
-	fmt.Println(b)
-	fmt.Println(*b)
+	calcular(myCuadrado)
+	calcular(myRectangulo)
 
-	*b = 100
-	fmt.Println(a)
-
-	myPc := pc{ram:16, disk: 200, brand: "msi"}
-	fmt.Println(myPc)
-
-	myPc.ping()
-
-	fmt.Println(myPc)
-	myPc.duplicateRAM()
-	
-	fmt.Println(myPc)
-	myPc.duplicateRAM()
-	
-	fmt.Println(myPc)
+	// Lista de interfaces
+	myInterface := []interface{}{"Hola", 12, 4.90}
+	fmt.Println(myInterface...)
 }
